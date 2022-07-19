@@ -12,6 +12,9 @@ import { spellword } from "../models/spellword"
 
 
 export const rankedResult = () => {
+    /* CodeReview (07-19-2022): 
+    * remove TODO if it's complete.
+    */
     // console.log("Hugo TODO: the results in Your Spell and Merlin's Spell are calculted by spell name and the feature weights user adjusted");
     
     
@@ -19,6 +22,14 @@ export const rankedResult = () => {
     let merlinVal: number[] = useRecoilValue(merlinfun); // change to user and merlin's weight functions
     let fs = useRecoilValue(features); // TODO: import featuers of current level
 
+    /* CodeReview (07-19-2022): 
+    * Going to start linking Google JS style guide, it's a good read:
+    * Avoid meaningless names, see https://google.github.io/styleguide/jsguide.html#naming
+    * Avoid this kind of for loop (see https://google.github.io/styleguide/jsguide.html#features-for-loops)
+    * it's preferable to use for in, map, filter, and reduce. This is especially true if it means 
+    * you can do a comparison check without creating a temporary variable and mutating it. That can lead to hard-to-debug errors.
+    * E.g. not a perfect analogy to this scenario, but it shows the point: https://dev.to/mlevkov/the-holy-trinity-map-filter-and-reduce-381e
+    */
     function compareUser(a : spellword, b : spellword) {
         let da = 0;
         for (var i = 0; i < userVal.length; i++) {
@@ -56,6 +67,13 @@ export const rankedResult = () => {
 
 
     // display images corresonding to userSuggested and merlinSuggested in the UI
+
+    /* CodeReview (07-19-2022): 
+    * This JSX  
+    * <img className = "word" src = {userSuggested[0].img} width = "75" height = "75" />
+    * should be written using map, i.e. {userSuggested.map(userSuggestedWord => ...)}
+    * Principle here: DRY (https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
+    */
     return(
 
         <div className = "ranked-results">
@@ -80,6 +98,9 @@ export const rankedResult = () => {
              </div>
         </div>
 
+/* CodeReview (07-19-2022): 
+    * remove commented out code or explain it
+    */
         /*
         <div className = "ranked-results">
             <div className = "spell-box">

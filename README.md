@@ -1,5 +1,8 @@
 # Getting Started with Create React App
 
+/* CodeReview (07-19-2022): 
+ * Remove anything not useful from this and change the name. Add a little description about what the project is.
+ */
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -4,7 +4,10 @@
     display: flex;
     flex-direction: column;
 }
-
+/* CodeReview (07-19-2022): 
+    * Consistency with naming, dashes or underscores?
+    * also, move Level-scroll_paper.png to assets folder
+    */
 .control-panel{
     width:100vw;
     height:15vh;

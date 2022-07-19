@@ -16,7 +16,9 @@ export const editFeature = () => {
 
     const [fs, setfs] = useRecoilState(features);
 
-    
+    /* CodeReview (07-19-2022): 
+    * Why these extra spaces? See https://google.github.io/styleguide/jsguide.html#formatting
+    */
     
     const feaModify = (value: any) => {
             var w = value;

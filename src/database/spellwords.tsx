@@ -1,5 +1,15 @@
 import {spellword} from "../models/spellword"
 
+/* CodeReview (07-19-2022): 
+    * This kind of repetition makes me nervious. It's prone to errors. 
+* A few suggestions, if the ids here are just indecies, use an array structure instead. 
+* As it is now, I might copy and paste and forget to update the id.
+* Is "type: "spellword"" being used anywhere? 
+* could all this data be hardcorded using a JSON file?
+* Is it necessary to store the full path? what if you had: 
+const imagePath = (imageName) => `../assets/Generated_spells_panel/Spell_words/{$imageName}.jpg`
+and then used that everywhere?
+    */
 const spellword1 : spellword = {
     type: "spellword",
     id: "1",

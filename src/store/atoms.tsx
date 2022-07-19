@@ -12,6 +12,11 @@ export const selected_feature = atom({
     default: 0,
 })
 
+/* CodeReview (07-19-2022): 
+    * Don't hardcode these image paths. Make them constants, i.e. const BLUE_POTION_IMG_SRC = ...;
+   * Honestly, the best way to do this might be to create a .json file that defines these objects and then read in
+   * from that.
+    */
 export const features = atom<feature[]>({
    key: "features",
    default: [{
@@ -54,6 +59,9 @@ export const userfun = selector({
         const fs = get(features);
         var sum = [0,0,0];
         for(let i = 0; i<fs.length;i++){
+         /* CodeReview (07-19-2022): 
+    * This seems fishy. DRY (https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
+    */
          sum[0]+= fs[i].weight * fs[i].value[0];
          sum[1]+= fs[i].weight * fs[i].value[1];
          sum[2]+= fs[i].weight * fs[i].value[2];

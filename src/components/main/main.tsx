@@ -25,7 +25,9 @@ import { userfun, merlinfun} from "../../store";
 import ProgressBar from "../../editor/progress-bar.component";
 import {getRandomInt} from "../../editor/getRandomInt";
 
-
+/* CodeReview (07-19-2022): 
+    * Nit: Prefer arrow functions (https://google.github.io/styleguide/jsguide.html#features-functions-arrow-functions)
+    */
 export default function Main(){
     const sys_level = useRecoilValue(level);
     const [sn, setsn] = useRecoilState(currentspellname);
@@ -38,11 +40,16 @@ export default function Main(){
             newgame();
         },[]);
     
-
+/* CodeReview (07-19-2022): 
+    * Variable naming (https://google.github.io/styleguide/jsguide.html#naming)
+    */
     const newgame = () => {
         let ns = newspell(); 
         setsn(ns);    
 
+        /* CodeReview (07-19-2022): 
+    * Decomposition.
+    */
         // reset all of the features
         let newfs = ns.value;
         let tem = fs.map(item =>{

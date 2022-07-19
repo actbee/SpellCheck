@@ -9,6 +9,9 @@ import { requirePropFactory } from "@mui/material";
 export const featureFunction = (level: number = 0) => {
     const [selfeature, setselfeature] = useRecoilState(selected_feature);
     
+    /* CodeReview (07-19-2022): 
+    * Variable naming: https://google.github.io/styleguide/jsguide.html#naming
+    */
     const [fs, setfs] = useRecoilState(features);
 
     const chooseFeature = (num: number) => {
@@ -17,10 +20,19 @@ export const featureFunction = (level: number = 0) => {
         oribtn!.style.backgroundColor = "";
         }
         var btn = document.getElementById(num.toString());
+        /* CodeReview (07-19-2022): 
+        * It's not broken, but "!" feels risky here.
+        */
         btn!.style.backgroundColor = "black";
         setselfeature(num);
         
     }
+
+    /* CodeReview (07-19-2022): 
+    * why are we hardcoding this to have exactly three features? 
+    * Beyond being not DRY, it's not extensible, this should allow for an arbitrary number of features and then use a map function 
+    * to dynamically generate JSX from an array of source data.
+    */
 
     return(
         <div className = "objective-function">
@@ -57,6 +69,7 @@ export const featureFunction = (level: number = 0) => {
                   return item;
                 })
           
+                
                 setfs(tem);
                 
                 chooseFeature(4);
